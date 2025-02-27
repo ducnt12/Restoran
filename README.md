@@ -1,16 +1,14 @@
 # Restaurant Website
 
 ## Description
-
-dsds
+Practical project with Reactjs and Bootstrap 5
 
 ## Setup project
-
-1. dsds
-2. dsds
-3. dsds
+    1. npm install
+    2. npm run dev
 
 ## Website preview
+`https://restoran-brown.vercel.app/`
 
 ## References
 
