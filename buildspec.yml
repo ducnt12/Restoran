@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20  # or 20 (recommended for AWS compatibility)
+    commands:
+      - echo Installing dependencies...
+      - npm ci  # faster & cleaner than npm install if you use package-lock.json
+  build:
+    commands:
+      - echo Building React app...
+      - npm run build
+  post_build:
+    commands:
+      - echo "Build completed..."
+      - echo "Listing build/ folder..."
+      - ls -la build/
+      - aws s3 sync build/ s3://my-static-hosting-bucket128 --delete --region ap-southeast-1
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build
